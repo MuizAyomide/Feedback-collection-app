@@ -19,4 +19,11 @@
     border-radius: 30px;
     padding: 5px 25px;
     font-weight: 600;
+    cursor: pointer;
+    transition: 0.1s all;
+}
+
+.navbar button:hover{
+    background: #ff1100c9;
+    color: #fff;
 }
