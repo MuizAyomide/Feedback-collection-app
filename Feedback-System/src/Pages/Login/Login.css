@@ -1,0 +1,38 @@
+.login{
+    margin: 8% 32%;
+}
+
+.login form{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+.login form input{
+    padding: 20px 15px;
+    outline: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #141414;
+    border: 1px solid #ff1000;
+    width: 500px;
+
+}
+
+.login form button{
+    background: #CFD4F5;
+    padding: 1rem 3rem;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: #ff0000;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.login form button:hover{
+    transform: scale(1.09);
+}
