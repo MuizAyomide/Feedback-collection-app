@@ -11,9 +11,10 @@ const Home = () => {
         laborum voluptate incidunt! Autem rerum, debitis beatae nulla quaerat
         cumque! Nemo, maiores!
       </p>
-
-      <button>Login</button>
-      <button>Register</button>
+<div className="btn">
+      <button className="login-btn">Login</button>
+      <button className="register">Register</button>
+</div>
 
     </div>
   );

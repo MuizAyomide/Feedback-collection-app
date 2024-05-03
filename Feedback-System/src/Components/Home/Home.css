@@ -17,3 +17,37 @@
     font-weight: 500;
     font-size: 14px;
 }
+
+.btn{
+    display: flex;
+    margin-top: 20px;
+    gap: 20px;
+  }
+  
+  .login-btn{
+    background: #ff0000;
+    padding: 1rem 3rem;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .register{
+    background: #CFD4F5;
+    padding: 1rem 3rem;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: #ff0000;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .login-btn:hover, .register:hover{
+    transform: scale(1.09);
+  }
