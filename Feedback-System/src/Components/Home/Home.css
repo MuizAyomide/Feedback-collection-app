@@ -36,7 +36,7 @@
     transition: all 0.3s ease;
   }
   
-  .register{
+  .register-btn{
     background: #CFD4F5;
     padding: 1rem 3rem;
     outline: none;
@@ -48,6 +48,6 @@
     transition: all 0.3s ease;
   }
   
-  .login-btn:hover, .register:hover{
+  .login-btn:hover, .register-btn:hover{
     transform: scale(1.09);
   }
