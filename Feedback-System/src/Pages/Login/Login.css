@@ -36,3 +36,23 @@
 .login form button:hover{
     transform: scale(1.09);
 }
+
+.bottom-info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 60px;
+    margin-left: -200px;
+    margin-right: -200px;
+}
+
+.bottom-info h3{
+    cursor: pointer;
+}
+
+.bottom-info h3 span{
+    color: #00ff00;
+}
+
+
+
