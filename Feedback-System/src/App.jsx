@@ -3,8 +3,9 @@ import './../src/App.css'
 import Navbar from './Components/Navbar/Navbar'
 import big_logo from './assets/big-logo.png'
 import Home from './Components/Home/Home'
-import Login from './Pages/Login/Login'
-import Register from './Pages/Register/Register'
+import Login from './Components/Login/Login'
+import Register from './Components/Register/Register'
+import Category from './Pages/Category/Category'
 
 const App = () => {
   return (
@@ -14,8 +15,9 @@ const App = () => {
       <img className='bg-img' src={big_logo} alt="" />
      </>
 {/* <Home/> */}
-<Login/>
+{/* <Login/> */}
 {/* <Register/> */}
+<Category/>
     </div>
   )
 }
