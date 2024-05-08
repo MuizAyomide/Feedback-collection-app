@@ -34,7 +34,7 @@ form input{
     outline: none;
 }
 
-form button{
+.product-text form button{
     background: red;
     padding: 1rem 2.3rem;
     font-size: 1.3em;
