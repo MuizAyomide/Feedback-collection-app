@@ -10,26 +10,27 @@ import Category from "./Pages/Category/Category";
 import User from "./Pages/User/User";
 import Product from "./Pages/Product/Product";
 import Candidate from "./Pages/Candidate/Candidate";
+import Contact from "./Components/Contact/Contact";
 
 const App = () => {
   return (
     <div className="app">
+
+      <BrowserRouter>
       <Navbar />
       <>
         <img className="bg-img" src={big_logo} alt="" />
       </>
-
-      <BrowserRouter>
-        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/category" element={<Category />} />
           <Route path="/user" element={<User />} />
-          <Route path="product" element={<Product />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/product" element={<Product />} />
+          <Route path="/candidate" element={<Product />} />
         </Routes>
-        <Footer />
       </BrowserRouter>
     </div>
   );
