@@ -11,6 +11,7 @@ import User from "./Pages/User/User";
 import Product from "./Pages/Product/Product";
 import Candidate from "./Pages/Candidate/Candidate";
 import Contact from "./Components/Contact/Contact";
+import Notification from "./Components/Notification/Notifcation";
 
 const App = () => {
   return (
@@ -29,9 +30,11 @@ const App = () => {
           <Route path="/user" element={<User />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/product" element={<Product />} />
-          <Route path="/candidate" element={<Product />} />
+          <Route path="/candidate" element={<Candidate />} />
         </Routes>
       </BrowserRouter>
+      <Notification/>
+
     </div>
   );
 };
