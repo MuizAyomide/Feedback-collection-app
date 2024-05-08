@@ -52,3 +52,16 @@
 .mid-info h3 span{
     color: #00ff00;
 }
+
+.mid-info h3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mid-info h3 input{
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+    background-color: #ff0000;
+}
