@@ -46,12 +46,10 @@
     margin-right: -200px;
 }
 
-.bottom-info h3{
-    cursor: pointer;
-}
 
 .bottom-info h3 span{
     color: #00ff00;
+    cursor: pointer;
 }
 
 
