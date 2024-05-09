@@ -10,7 +10,7 @@ const Home = () => {
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi
         nesciunt, ipsum, fugit nulla laboriosam alias perspiciatis et possimus
-        laborum voluptate incidunt! Autem rerum, debitis beatae nulla quaerat
+        laborum voluptate incidunt! rerum, debitis beatae nulla quaerat
         cumque! Nemo, maiores!
       </p>
 <div className="btn">
