@@ -1,10 +1,27 @@
 import React from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../Lib/Firebase";
+
+
 
 const Login = () => {
-  const handleLogin = (e) => {
+
+
+  
+  const handleLogin = async (e) => {
     e.preventDefault();
+    const formData = new FormData(e.target);
+    const { email, password } = Object.fromEntries(formData);
+
+    try{
+
+      await signInWithEmailAndPassword(auth,email,password)
+
+    }catch(err){
+      toast.error(err.message)
+    }
   };
 
   return (
