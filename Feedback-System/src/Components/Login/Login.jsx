@@ -3,11 +3,19 @@ import './Login.css'
 import { Link } from 'react-router-dom'
 
 const Login = () => {
+
+  const handleLogin = e =>{
+    e.preventDefault()
+  }
+  
+
+
+
   return (
     <div className='login'>
-      <form>
-        <input type="text" placeholder='Email:' />
-        <input type="text" placeholder='Password:' />
+      <form onSubmit={handleLogin}>
+        <input type="text" placeholder='Email:' name='email' />
+        <input type="text" placeholder='Password:' name='password' />
         <Link to={'/category'} style={{textDecoration: 'none'}}> <button>Login</button></Link>
       </form>
       <div className='bottom-info'>
