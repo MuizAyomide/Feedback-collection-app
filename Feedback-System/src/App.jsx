@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./../src/App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./Components/Navbar/Navbar";
@@ -12,16 +12,29 @@ import Product from "./Pages/Product/Product";
 import Candidate from "./Pages/Candidate/Candidate";
 import Contact from "./Components/Contact/Contact";
 import Notification from "./Components/Notification/Notifcation";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./Lib/Firebase";
 
 const App = () => {
+  const user = true;
+
+  useEffect(() => {
+    const unSub = onAuthStateChanged(auth, (user) => {
+      console.log(user);
+    });
+
+    return () => {
+      unSub();
+    };
+  }, []);
+
   return (
     <div className="app">
-
       <BrowserRouter>
-      <Navbar />
-      <>
-        <img className="bg-img" src={big_logo} alt="" />
-      </>
+        <Navbar />
+        <>
+          <img className="bg-img" src={big_logo} alt="" />
+        </>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
@@ -33,8 +46,7 @@ const App = () => {
           <Route path="/candidate" element={<Candidate />} />
         </Routes>
       </BrowserRouter>
-      <Notification/>
-
+      <Notification />
     </div>
   );
 };
