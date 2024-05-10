@@ -8,7 +8,6 @@ import { doc, setDoc } from "firebase/firestore";
 
 
 
-
 const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
