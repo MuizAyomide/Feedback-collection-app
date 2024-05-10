@@ -1,38 +1,48 @@
-import React from "react";
+import React, {useState} from "react";
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../Lib/Firebase";
-
-
+import { toast } from "react-toastify";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-
-  
   const handleLogin = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const { email, password } = Object.fromEntries(formData);
 
-    try{
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      // Redirect to the chat page after successful login
 
-      await signInWithEmailAndPassword(auth,email,password)
-
-    }catch(err){
-      toast.error(err.message)
+      navigate("/category");
+    } catch (err) {
+      toast.error(err.message);
     }
   };
 
   return (
     <div className="login">
       <form onSubmit={handleLogin}>
-        <input type="text" placeholder="Email:" name="email" />
-        <input type="text" placeholder="Password:" name="password" />
-        <Link to={"/category"} style={{ textDecoration: "none" }}>
-          {" "}
-          <button>Login</button>
-        </Link>
+        <input
+          type="text"
+          placeholder="Email:"
+          name="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Password:"
+          name="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button>Login</button>
       </form>
       <div className="bottom-info">
         <h3>Forgot Password?</h3>
