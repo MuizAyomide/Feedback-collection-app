@@ -2,12 +2,23 @@ import React from "react";
 import "./Register.css";
 import { Link } from "react-router-dom";
 const Register = () => {
+
+const handleRegister = e =>{
+  e.preventDefault()
+
+  const formData = new FormData()
+  const {username,email,password} = Object.fromEntries(formData)
+
+  console.log(username)
+}
+
+
   return (
     <div className="register">
-      <form>
-        <input type="text" placeholder="Username:" />
-        <input type="text" placeholder="Email:" />
-        <input type="text" placeholder="Password:" />
+      <form onSubmit={handleRegister}>
+        <input type="text" placeholder="Username:" name="username" />
+        <input type="text" placeholder="Email:" name="email"/>
+        <input type="text" placeholder="Password:" name="password" />
         <div className="mid-info">
          
           <h3> <input type="checkbox" className="checkbox"/> Terms and Services</h3>
