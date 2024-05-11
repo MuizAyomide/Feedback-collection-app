@@ -16,7 +16,7 @@ const Category = () => {
       </Link> 
       <Link to={'/product'} style={{textDecoration: 'none', color: 'black'}}> 
         <div className="card">
-            <h2>Product</h2>
+            <h2>Product</   h2>
             <p>Feedback</p>
         </div>
       </Link><Link to={'/candidate'} style={{textDecoration: 'none', color: 'black'}}> 
