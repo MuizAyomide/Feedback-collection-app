@@ -5,3 +5,13 @@
   box-sizing: border-box;
   font-family: montserrat, Impact;
 }
+
+.loading{
+  padding: 1rem;
+  font-size: 25px;
+  background: red;
+  color: #fff;
+  margin: 20% auto;
+  border: 2px solid #fff;
+  width: 150px;
+}
