@@ -31,7 +31,7 @@ const App = () => {
     };
   }, [fetchUserInfo]);
 
-  console.log(currentUser.id);
+  // console.log(currentUser.id);
 
   return (
     <div className="app">
