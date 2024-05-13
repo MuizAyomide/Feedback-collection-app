@@ -5,12 +5,15 @@ import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../Lib/Firebase";
 
 const User = () => {
-  const [feedbacks, setFeedbacks] = useState();
+  
+  const [text, setText] = useState("");
+
+  const [feedback, setFeedback] = useState();
   const { currentUser } = useUserStore();
 
   useEffect(() => {
     const unSub = onSnapshot(doc(db, "userfeedback", currentUser.id), (doc) => {
-      setFeedbacks(doc.data());
+      setFeedback(doc.data());
     });
 
     return () => {
@@ -18,23 +21,24 @@ const User = () => {
     };
   }, [currentUser.id]);
 
+
   return (
     <div className="user">
       <div className="user-text">
         <h3>
-          Welcome <span>MUIZ</span>!
+          Welcome <span>{currentUser.username}</span>!
         </h3>
         <h1>USER FEEDBACK</h1>
         <h3>Enter your feedback...</h3>
         <form>
-          <input type="text" />
+          <input type="text" 
+          value={text}
+          onChange={(e) => setText(e.target.value)}/>
           <button>SEND</button>
         </form>
       </div>
-{
-  feedbacks.map((feedback) =>{
 
-      <div className="other-feedback" key={feedback.feedbac}>
+      <div className="other-feedback">
         <h3>Other Feedbacks</h3>
         <div className="feedbacks">
           <div className="feedback">
@@ -46,7 +50,6 @@ const User = () => {
           </div>
         </div>
       </div>
-  })}
     </div>
   );
 };
