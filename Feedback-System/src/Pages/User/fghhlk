@@ -1,0 +1,38 @@
+import React, { useState } from "react";
+import { arrayUnion, doc, updateDoc } from "firebase/firestore";
+import { db } from "./Firebase";
+
+const MessageForm = ({ userId }) => {
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const userDocRef = doc(db, "users", userId);
+      await updateDoc(userDocRef, {
+        messages: arrayUnion({
+          text: message,
+          createdAt: new Date(),
+        }),
+      });
+      console.log("Message sent successfully!");
+      setMessage(""); // Clear the input field after sending the message
+    } catch (err) {
+      console.error("Error sending message:", err);
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+      />
+      <button type="submit">Send Message</button>
+    </form>
+  );
+};
+
+export default MessageForm;
