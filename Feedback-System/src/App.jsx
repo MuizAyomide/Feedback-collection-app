@@ -42,18 +42,15 @@ const App = () => {
         </>
         <Routes>
           {
-            currentUser ? <>
+            currentUser && <>
             <Route path="/category" element={<Category />} />
             <Route path="/user" element={<User />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/product" element={<Product />} />
             <Route path="/candidate" element={<Candidate />} />
-            
-            </>:<>
-          <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-            
             </>
           }
         </Routes>
