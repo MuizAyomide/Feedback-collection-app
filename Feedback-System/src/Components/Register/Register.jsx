@@ -6,8 +6,6 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../../Lib/Firebase";
 import { doc, setDoc } from "firebase/firestore";
 
-
-
 const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -16,8 +14,7 @@ const Register = () => {
     const { username, email, password } = Object.fromEntries(formData);
 
     try {
-
-      const res = await createUserWithEmailAndPassword(auth,email,password)
+      const res = await createUserWithEmailAndPassword(auth, email, password);
 
       await setDoc(doc(db, "users", res.user.uid), {
         username,
@@ -26,13 +23,13 @@ const Register = () => {
       });
 
       await setDoc(doc(db, "userfeedback", res.user.uid), {
-        feedbacks: []
+        feedbacks: [],
       });
 
-      toast.success('Account Created! you can login Now!!!')
+      toast.success("Account created! You can login now!");
     } catch (err) {
-      console.log(err)
-      toast.error(err.massage)
+      console.log(err);
+      toast.error(err.message);
     }
   };
 
@@ -41,7 +38,7 @@ const Register = () => {
       <form onSubmit={handleRegister}>
         <input type="text" placeholder="Username:" name="username" />
         <input type="text" placeholder="Email:" name="email" />
-        <input type="text" placeholder="Password:" name="password" />
+        <input type="password" placeholder="Password:" name="password" />
         <div className="mid-info">
           <h3>
             {" "}
