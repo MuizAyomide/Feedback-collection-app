@@ -5,37 +5,28 @@ import { arrayUnion, doc, onSnapshot, updateDoc } from "firebase/firestore";
 import { db } from "../../Lib/Firebase";
 
 const User = () => {
-  const [text, setText] = useState("");
 
-  const [feedback, setFeedback] = useState();
-  const { currentUser } = useUserStore();
+ const MessageForm = ({ userId }) => {
+  const [message, setMessage] = useState("");
 
-  useEffect(() => {
-    const unSub = onSnapshot(doc(db, "users", currentUser.id), (doc) => {
-      setFeedback(doc.data());
-    });
-
-    return () => {
-      unSub();
-    };
-  }, [currentUser.id]);
-  console.log(currentUser.id);
-
-  const handleSend = async () => {
-    if (text === "") return;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
     try {
-      await updateDoc(db, "userfeedback", feedback.id, {
-        feedbacks: arrayUnion({
-          senderId: currentUser.id,
-          text,
+      const userDocRef = doc(db, "users", userId);
+      await updateDoc(userDocRef, {
+        messages: arrayUnion({
+          text: message,
           createdAt: new Date(),
         }),
       });
+      console.log("Message sent successfully!");
+      setMessage(""); // Clear the input field after sending the message
     } catch (err) {
-      console.log(err);
+      console.error("Error sending message:", err);
     }
   };
+
 
   return (
     <div className="user">
@@ -45,14 +36,14 @@ const User = () => {
         </h3>
         <h1>USER FEEDBACK</h1>
         <h3>Enter your feedback...</h3>
-        <div className="form">
-          <input
-            type="text"
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-          />
-          <button onClick={handleSend}>SEND</button>
-        </div>
+        <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+      />
+      <button type="submit">Send Message</button>
+    </form>
       </div>
 
       <div className="other-feedback">
