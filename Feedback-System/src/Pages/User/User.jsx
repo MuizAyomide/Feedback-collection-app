@@ -1,32 +1,41 @@
 import React, { useEffect, useState } from "react";
 import "./User.css";
 import { useUserStore } from "../../Lib/userStore";
-import { arrayUnion, doc, onSnapshot, updateDoc } from "firebase/firestore";
+import { arrayUnion, doc, updateDoc, onSnapshot } from "firebase/firestore";
 import { db } from "../../Lib/Firebase";
 
 const User = () => {
+  const [text, setText] = useState("");
+  const { currentUser } = useUserStore();
 
- const MessageForm = ({ userId }) => {
-  const [message, setMessage] = useState("");
+  useEffect(() => {
+    const unsubscribe = onSnapshot(doc(db, "userfeedback", currentUser.id), (doc) => {
+      setFeedback(doc.data()?.feedbacks);
+    });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+    return () => {
+      unsubscribe();
+    };
+  }, [currentUser.id]);
+
+  const handleSend = async () => {
+    if (text === "") return;
 
     try {
-      const userDocRef = doc(db, "users", userId);
-      await updateDoc(userDocRef, {
-        messages: arrayUnion({
-          text: message,
+      const userRef = doc(db, "userfeedback", currentUser.id);
+      await updateDoc(userRef, {
+        feedbacks: arrayUnion({
+          senderId: currentUser.id,
+          text,
           createdAt: new Date(),
         }),
       });
-      console.log("Message sent successfully!");
-      setMessage(""); // Clear the input field after sending the message
+
+      setText("");
     } catch (err) {
-      console.error("Error sending message:", err);
+      console.log(err);
     }
   };
-
 
   return (
     <div className="user">
@@ -36,14 +45,14 @@ const User = () => {
         </h3>
         <h1>USER FEEDBACK</h1>
         <h3>Enter your feedback...</h3>
-        <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-      />
-      <button type="submit">Send Message</button>
-    </form>
+        <div className="form">
+          <input
+            type="text"
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+          />
+          <button onClick={handleSend}>SEND</button>
+        </div>
       </div>
 
       <div className="other-feedback">
@@ -53,9 +62,9 @@ const User = () => {
             <div className="username-text">
               {currentUser.username.slice(0, 1).toUpperCase()}
             </div>
-            {feedback?.feedbacks?.map((feeds) => (
-              <div className="feedback-text" key={feeds?.createdAt}>
-                {feeds.text}
+            {feedback?.map((feed) => (
+              <div className="feedback-text" key={feed?.createdAt}>
+                {feed.text}
               </div>
             ))}
           </div>
