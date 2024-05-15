@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import './App.css'
+import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./Components/Navbar/Navbar";
 import big_logo from "./assets/big-logo.png";
@@ -36,7 +36,7 @@ const App = () => {
       <BrowserRouter>
         <Navbar />
         <>
-        <img className="bg-img" src={big_logo} alt="" />
+          <img className="bg-img" src={big_logo} alt="" />
         </>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -53,7 +53,7 @@ const App = () => {
           )}
         </Routes>
       </BrowserRouter>
-      <Notification/>
+      <Notification />
     </div>
   );
 };

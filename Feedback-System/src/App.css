@@ -1,16 +1,15 @@
-.app{
+.app {
   width: 100vw;
   height: 100vh;
   position: relative;
   overflow: hidden;
 }
 
-.bg-img{
+.bg-img {
   position: absolute;
   width: 900px;
   height: 900px;
   z-index: -100;
   top: 60px;
   right: -70px;
-} 
-
+}
