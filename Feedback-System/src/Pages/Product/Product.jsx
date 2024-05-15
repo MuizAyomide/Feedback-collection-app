@@ -3,15 +3,15 @@ import "./Product.css";
 import { useUserStore } from "../../Lib/userStore";
 import { onSnapshot, doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { db } from "../../Lib/Firebase";
-const Product = () => {
 
+const Product = () => {
   const [text, setText] = useState("");
   const { currentUser } = useUserStore();
   const [feedback, setFeedback] = useState([]);
 
   useEffect(() => {
     const unsubscribe = onSnapshot(
-      doc(db, "userfeedback", currentUser.id),
+      doc(db, "productfeedback", currentUser.id), // Use "productfeedback" collection instead of "userfeedback"
       (doc) => {
         setFeedback(doc.data()?.feedbacks);
       }
@@ -26,7 +26,7 @@ const Product = () => {
     if (text === "") return;
 
     try {
-      const userRef = doc(db, "userfeedback", currentUser.id);
+      const userRef = doc(db, "productfeedback", currentUser.id); // Use "productfeedback" collection instead of "userfeedback"
       await updateDoc(userRef, {
         feedbacks: arrayUnion({
           senderId: currentUser.id,
@@ -40,10 +40,11 @@ const Product = () => {
       console.log(err);
     }
   };
+
   return (
     <div className="product">
       <div className="product-text">
-      <h3>
+        <h3>
           Welcome <span>{currentUser.username}</span>!
         </h3>
         <h1>PRODUCT FEEDBACK</h1>
@@ -61,18 +62,18 @@ const Product = () => {
       <div className="other-feedback">
         <h3>Other Feedbacks</h3>
         <div className="feedbacks">
-            {feedback?.length > 0 && (
-              <div className="feedback">
-                {feedback.map((feed) => (
-                  <div className="feeds" key={feed.createdAt}>
-                    <div className="username-text">
-                      {currentUser.username.slice(0, 1).toUpperCase()}
-                    </div>
-                    <div className="feedback-text">{feed.text}</div>
+          {feedback?.length > 0 && (
+            <div className="feedback">
+              {feedback.map((feed) => (
+                <div className="feeds" key={feed.createdAt}>
+                  <div className="username-text">
+                    {currentUser.username.slice(0, 1).toUpperCase()}
                   </div>
-                ))}
-              </div>
-            )}
+                  <div className="feedback-text">{feed.text}</div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>
