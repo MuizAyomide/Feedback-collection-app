@@ -1,57 +1,57 @@
-.home{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: 3% 10%;
-    padding: 30px 0px;
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 3% 10%;
+  padding: 30px 0px;
 }
 
-.home h2{
-    font-size: 66px;
-    font-weight: 600;
+.home h2 {
+  font-size: 66px;
+  font-weight: 600;
 }
 
-.home p{
-    width: 50ch;
-    color: #707070;
-    font-weight: 500;
-    font-size: 14px;
+.home p {
+  width: 50ch;
+  color: #707070;
+  font-weight: 500;
+  font-size: 14px;
 }
 
-.btn{
-    display: flex;
-    margin-top: 20px;
-    gap: 20px;
-  }
-  
-  .login-btn{
-    background: #ff0000;
-    padding: 1rem 3rem;
-    outline: none;
-    border: none;
-    font-size: 18px;
-    font-weight: 600;
-    color: #fff;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .register-btn{
-    background: #CFD4F5;
-    padding: 1rem 3rem;
-    outline: none;
-    border: none;
-    font-size: 18px;
-    font-weight: 600;
-    color: #ff0000;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .login-btn:hover, .register-btn:hover{
-    transform: scale(1.09);
-  }
+.btn {
+  display: flex;
+  margin-top: 20px;
+  gap: 20px;
+}
 
-  .admin{
-    
-  }
+.login-btn {
+  background: #ff0000;
+  padding: 1rem 3rem;
+  outline: none;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.register-btn {
+  background: #cfd4f5;
+  padding: 1rem 3rem;
+  outline: none;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  color: #ff0000;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-btn:hover,
+.register-btn:hover {
+  transform: scale(1.09);
+}
+
+.admin {
+}
