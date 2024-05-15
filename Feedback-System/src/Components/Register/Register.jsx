@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Register.css";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -7,8 +7,16 @@ import { auth, db } from "../../Lib/Firebase";
 import { doc, setDoc } from "firebase/firestore";
 
 const Register = () => {
+  const [termsChecked, setTermsChecked] = useState(false);
+
   const handleRegister = async (e) => {
     e.preventDefault();
+
+    if (!termsChecked) {
+      console.log('erroe')
+      toast.error("Please accept the Terms and Services");
+      return;
+    }
 
     const formData = new FormData(e.target);
     const { username, email, password } = Object.fromEntries(formData);
@@ -26,11 +34,23 @@ const Register = () => {
         feedbacks: [],
       });
 
+      await setDoc(doc(db, "productfeedback", res.user.uid), {
+        feedbacks: [],
+      });
+
+      await setDoc(doc(db, "candidatefeedback", res.user.uid), {
+        feedbacks: [],
+      });
+
       toast.success("Account created! You can login now!");
     } catch (err) {
       console.log(err);
       toast.error(err.message);
     }
+  };
+
+  const handleCheckboxChange = () => {
+    setTermsChecked((prevTermsChecked) => !prevTermsChecked);
   };
 
   return (
@@ -41,19 +61,20 @@ const Register = () => {
         <input type="password" placeholder="Password:" name="password" />
         <div className="mid-info">
           <h3>
-            {" "}
-            <input type="checkbox" className="checkbox" /> Terms and Services
+            <input type="checkbox" className="checkbox" checked={termsChecked} onChange={handleCheckboxChange} /> Terms and Services
           </h3>
 
           <h3>
-            Already have an account?{" "}
+            Created or Already have an account? {" "}
             <Link to={"/login"} style={{ textDecoration: "none" }}>
               {" "}
-              <span>Login Here!</span>
+              <span> Login Here!</span>
             </Link>
           </h3>
         </div>
-        <button type="submit">Register</button>
+        <button type="submit" disabled={!termsChecked} >
+          Register
+        </button>
       </form>
     </div>
   );
