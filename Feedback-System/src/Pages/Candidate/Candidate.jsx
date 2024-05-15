@@ -44,7 +44,7 @@ const Candidate = () => {
   return (
     <div className="candidate">
       <div className="candidate-text">
-      <h3>
+        <h3>
           Welcome <span>{currentUser.username}</span>!
         </h3>
         <h1>CANDIDATE FEEDBACK</h1>
