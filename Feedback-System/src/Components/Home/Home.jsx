@@ -18,6 +18,8 @@ const Home = () => {
   <Link to='/register' style={{textDecoration: 'none'}}>  <button className="register-btn">Register</button></Link> 
 </div>
 
+<div className="admin">Admin</div>
+
     </div>
   );
 };
