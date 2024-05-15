@@ -62,18 +62,18 @@ const User = () => {
       <div className="other-feedback">
         <h3>Other Feedbacks</h3>
         <div className="feedbacks">
-            {feedback?.length > 0 && (
-              <div className="feedback">
-                {feedback.map((feed) => (
-                  <div className="feeds" key={feed.createdAt}>
-                    <div className="username-text">
-                      {currentUser.username.slice(0, 1).toUpperCase()}
-                    </div>
-                    <div className="feedback-text">{feed.text}</div>
+          {feedback?.length > 0 && (
+            <div className="feedback">
+              {feedback.map((feed) => (
+                <div className="feeds" key={feed.createdAt}>
+                  <div className="username-text">
+                    {currentUser.username.slice(0, 1).toUpperCase()}
                   </div>
-                ))}
-              </div>
-            )}
+                  <div className="feedback-text">{feed.text}</div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>
