@@ -13,7 +13,7 @@ const Register = () => {
     e.preventDefault();
 
     if (!termsChecked) {
-      console.log('erroe')
+      console.log("erroe");
       toast.error("Please accept the Terms and Services");
       return;
     }
@@ -61,18 +61,24 @@ const Register = () => {
         <input type="password" placeholder="Password:" name="password" />
         <div className="mid-info">
           <h3>
-            <input type="checkbox" className="checkbox" checked={termsChecked} onChange={handleCheckboxChange} /> Terms and Services
+            <input
+              type="checkbox"
+              className="checkbox"
+              checked={termsChecked}
+              onChange={handleCheckboxChange}
+            />{" "}
+            Terms and Services
           </h3>
 
           <h3>
-            Created or Already have an account? {" "}
+            Created or Already have an account?{" "}
             <Link to={"/login"} style={{ textDecoration: "none" }}>
               {" "}
               <span> Login Here!</span>
             </Link>
           </h3>
         </div>
-        <button type="submit" disabled={!termsChecked} >
+        <button type="submit" disabled={!termsChecked}>
           Register
         </button>
       </form>
