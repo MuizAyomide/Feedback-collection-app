@@ -1,19 +1,19 @@
-.user{
+.user {
     margin: 0.4% 10%;
 }
 
-.user-text{
-display: flex;
-flex-direction: column;
+.user-text {
+    display: flex;
+    flex-direction: column;
 }
 
-.user-text h1{
+.user-text h1 {
     font-family: impact !important;
     font-size: 3.8rem;
     font-weight: 400;
 }
 
-.user-text h3{
+.user-text h3 {
     font-size: 1.5rem;
     font-weight: 600;
 }
@@ -24,7 +24,7 @@ flex-direction: column;
     justify-content: space-between;
 }
 
-.form input{
+.form input {
     padding: 1rem 1rem;
     font-size: 1em;
     width: 85%;
@@ -34,7 +34,7 @@ flex-direction: column;
     outline: none;
 }
 
-.user-text .form button{
+.user-text .form button {
     background: red;
     padding: 1rem 2.3rem;
     font-size: 1.3em;
@@ -46,20 +46,20 @@ flex-direction: column;
     box-shadow: 0px 0px 10px 2px rgb(255, 255, 255);
 }
 
-.other-feedback{
+.other-feedback {
     margin-top: 40px;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.other-feedback h3{
+.other-feedback h3 {
     text-align: center;
     font-size: 1.5rem;
     font-weight: 600;
 }
 
-.feedbacks{
+.feedbacks {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -68,22 +68,22 @@ flex-direction: column;
     overflow-x: hidden;
 }
 
-.feedbacks::-webkit-scrollbar{
+.feedbacks::-webkit-scrollbar {
     display: hidden;
 }
 
- .feeds{
+.feeds {
     display: flex;
     gap: 30px;
 }
 
-.feedback{
+.feedback {
     gap: 30px;
     display: flex;
     flex-direction: column;
 }
 
-.feedback .username-text{
+.feedback .username-text {
     width: 50px;
     height: 50px;
     display: flex;
@@ -96,7 +96,7 @@ flex-direction: column;
     font-weight: 500;
 }
 
-.feedback .feedback-text{
+.feedback .feedback-text {
     width: 95%;
     height: 70px;
     background: #fff;
