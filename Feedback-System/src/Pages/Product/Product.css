@@ -18,13 +18,13 @@ flex-direction: column;
     font-weight: 600;
 }
 
-form {
+.form {
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
 }
 
-form input{
+.form input{
     padding: 1rem 1rem;
     font-size: 1em;
     width: 85%;
@@ -34,7 +34,7 @@ form input{
     outline: none;
 }
 
-.product-text form button{
+.product-text .form button{
     background: red;
     padding: 1rem 2.3rem;
     font-size: 1.3em;
