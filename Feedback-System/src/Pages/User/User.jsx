@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from "react";
 import "./User.css";
 import { useUserStore } from "../../Lib/userStore";
-import { arrayUnion, doc, updateDoc, onSnapshot } from "firebase/firestore";
+import { onSnapshot, doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { db } from "../../Lib/Firebase";
 
 const User = () => {
   const [text, setText] = useState("");
   const { currentUser } = useUserStore();
+  const [feedback, setFeedback] = useState([]);
 
   useEffect(() => {
-    const unsubscribe = onSnapshot(doc(db, "userfeedback", currentUser.id), (doc) => {
-      setFeedback(doc.data()?.feedbacks);
-    });
+    const unsubscribe = onSnapshot(
+      doc(db, "userfeedback", currentUser.id),
+      (doc) => {
+        setFeedback(doc.data()?.feedbacks);
+      }
+    );
 
     return () => {
       unsubscribe();
@@ -58,16 +62,18 @@ const User = () => {
       <div className="other-feedback">
         <h3>Other Feedbacks</h3>
         <div className="feedbacks">
-          <div className="feedback">
-            <div className="username-text">
-              {currentUser.username.slice(0, 1).toUpperCase()}
-            </div>
-            {feedback?.map((feed) => (
-              <div className="feedback-text" key={feed?.createdAt}>
-                {feed.text}
+            {feedback?.length > 0 && (
+              <div className="feedback">
+                {feedback.map((feed) => (
+                  <div className="feeds" key={feed.createdAt}>
+                    <div className="username-text">
+                      {currentUser.username.slice(0, 1).toUpperCase()}
+                    </div>
+                    <div className="feedback-text">{feed.text}</div>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            )}
         </div>
       </div>
     </div>
