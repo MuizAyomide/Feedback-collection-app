@@ -102,4 +102,5 @@ flex-direction: column;
     background: #fff;
     border: 1px solid red;
     padding: 10px;
+    text-wrap: hidden;
 }
