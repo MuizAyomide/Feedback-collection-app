@@ -48,6 +48,9 @@ const App = () => {
           <Route path="/adminlogin" element={<AdminLogin />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/admincategory" element={<AdminCategory />} />
+              <Route path="/adminuser" element={<AdminUserFeedback />} />
+              <Route path="/adminproduct" element={<AdminProductFeedback />} />
           {currentUser && (
             <>
               <Route path="/category" element={<Category />} />
@@ -55,9 +58,6 @@ const App = () => {
               <Route path="/contact" element={<Contact />} />
               <Route path="/product" element={<Product />} />
               <Route path="/candidate" element={<Candidate />} />
-              <Route path="/admincategory" element={<AdminCategory />} />
-              <Route path="/adminuser" element={<AdminUserFeedback />} />
-              <Route path="/adminproduct" element={<AdminProductFeedback />} />
               <Route
                 path="/admincandidate"
                 element={<AdminCandidateFeedback />}
