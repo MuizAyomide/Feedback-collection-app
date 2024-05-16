@@ -17,7 +17,7 @@ const Login = () => {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      // Redirect to the chat page after successful login
+  
 
       navigate("/category");
     } catch (err) {
