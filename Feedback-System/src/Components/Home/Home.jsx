@@ -23,7 +23,7 @@ const Home = () => {
           <button className="register-btn">Register</button>
         </Link>
       </div>
-      <Link to="/admincategory" style={{ textDecoration: "none" }}>
+      <Link to="/adminlogin" style={{ textDecoration: "none" }}>
       <button className="admin">
         <img src={admin_icon} alt="" />
         Admin</button>
