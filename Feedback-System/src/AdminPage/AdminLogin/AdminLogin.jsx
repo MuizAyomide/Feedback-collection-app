@@ -17,7 +17,6 @@ const AdminLogin = () => {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-  
 
       navigate("/admincategory");
     } catch (err) {
@@ -27,7 +26,7 @@ const AdminLogin = () => {
 
   return (
     <div className="adminlogin">
-            <h1>Login As Admin</h1>
+      <h1>Login As Admin</h1>
 
       <form onSubmit={handleLogin}>
         <input
@@ -46,12 +45,13 @@ const AdminLogin = () => {
         />
         <button>Login</button>
       </form>
-          <div className="bottom-info">
-            <h3><span>Account Already Created Manually From Api!!!</span>
-</h3>
-          </div>
-        </div>
-      );
-}
+      <div className="bottom-info">
+        <h3>
+          <span>Account Already Created Manually From Api!!!</span>
+        </h3>
+      </div>
+    </div>
+  );
+};
 
-export default AdminLogin
+export default AdminLogin;
