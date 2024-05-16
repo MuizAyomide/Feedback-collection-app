@@ -4,6 +4,7 @@
   justify-content: space-between;
   margin: 3% 10%;
   padding: 30px 0px;
+  position: relative;
 }
 
 .home h2 {
@@ -49,9 +50,29 @@
 }
 
 .login-btn:hover,
-.register-btn:hover {
+.register-btn:hover, .admin:hover {
   transform: scale(1.09);
 }
 
 .admin {
+  position: absolute;
+  bottom: -100px;
+  right: 0px;
+  border: 1px solid #ff0000;
+  border-bottom: 2px solid #ff0000;
+  padding: 0.4rem 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+
+}
+
+.admin img{
+  width: 25px;
+  height: 25px;
+  
 }
