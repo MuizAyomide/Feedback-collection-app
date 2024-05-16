@@ -2,6 +2,7 @@ import React from "react";
 import "./Category.css";
 import { Link } from "react-router-dom";
 const Category = () => {
+  
   return (
     <div className="category">
       <h3>Select Category...</h3>
