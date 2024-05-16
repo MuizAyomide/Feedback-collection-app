@@ -17,6 +17,9 @@ import { useUserStore } from "./Lib/userStore";
 import Notification from "./Components/Notification/Notifcation";
 import AdminLogin from "./AdminPage/AdminLogin/AdminLogin";
 import AdminCategory from "./AdminPage/AdminCategory/AdminCategory";
+import AdminUserFeedback from "./AdminPage/AdminUserFeedback/AdminUserFeedback";
+import AdminProductFeedback from "./AdminPage/AdminProductFeedback/AdminProductFeedback";
+import AdminCandidateFeedback from "./AdminPage/AdminCandidateFeedback/AdminCandidateFeedback";
 
 const App = () => {
   const { currentUser, fetchUserInfo } = useUserStore();
@@ -42,8 +45,7 @@ const App = () => {
         </>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/admincategory" element={<AdminCategory />} />
-          <Route path='/adminlogin' element={<AdminLogin/>}/>
+          <Route path="/adminlogin" element={<AdminLogin />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           {currentUser && (
@@ -53,6 +55,13 @@ const App = () => {
               <Route path="/contact" element={<Contact />} />
               <Route path="/product" element={<Product />} />
               <Route path="/candidate" element={<Candidate />} />
+              <Route path="/admincategory" element={<AdminCategory />} />
+              <Route path="/adminuser" element={<AdminUserFeedback />} />
+              <Route path="/adminproduct" element={<AdminProductFeedback />} />
+              <Route
+                path="/admincandidate"
+                element={<AdminCandidateFeedback />}
+              />
             </>
           )}
         </Routes>
