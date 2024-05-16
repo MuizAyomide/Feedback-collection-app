@@ -11,7 +11,7 @@ const AdminCategory = () => {
         <Link to={"/user"} style={{ textDecoration: "none", color: "black" }}>
           <div className="card">
             <h2>USER</h2>
-            <p>Feedback</p>
+            <p>Feedbacks</p>
           </div>
         </Link>
         <Link
@@ -20,7 +20,7 @@ const AdminCategory = () => {
         >
           <div className="card">
             <h2>Product</h2>
-            <p>Feedback</p>
+            <p>Feedbacks</p>
           </div>
         </Link>
         <Link
@@ -29,7 +29,7 @@ const AdminCategory = () => {
         >
           <div className="card">
             <h2>Candidate</h2>
-            <p>Feedback</p>
+            <p>Feedbacks</p>
           </div>
         </Link>
       </div>
