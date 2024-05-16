@@ -8,14 +8,14 @@ const AdminCategory = () => {
         <div className="admincategory">
       <h2>Admin Category</h2    >
       <div className="cards">
-        <Link to={"/user"} style={{ textDecoration: "none", color: "black" }}>
+        <Link to={"/adminuser"} style={{ textDecoration: "none", color: "black" }}>
           <div className="card">
             <h2>USER</h2>
             <p>Feedbacks</p>
           </div>
         </Link>
         <Link
-          to={"/product"}
+          to={"/adminproduct"}
           style={{ textDecoration: "none", color: "black" }}
         >
           <div className="card">
@@ -24,7 +24,7 @@ const AdminCategory = () => {
           </div>
         </Link>
         <Link
-          to={"/candidate"}
+          to={"/admincandidate"}
           style={{ textDecoration: "none", color: "black" }}
         >
           <div className="card">
