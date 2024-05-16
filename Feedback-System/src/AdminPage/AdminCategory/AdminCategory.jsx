@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'
 const AdminCategory = () => {
   return (
     <div>
-        <div className="category">
-      <h3>Select Category...</h3>
+        <div className="admincategory">
+      <h2>Admin Category</h2    >
       <div className="cards">
         <Link to={"/user"} style={{ textDecoration: "none", color: "black" }}>
           <div className="card">
