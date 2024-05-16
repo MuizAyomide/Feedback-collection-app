@@ -15,6 +15,8 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./Lib/Firebase";
 import { useUserStore } from "./Lib/userStore";
 import Notification from "./Components/Notification/Notifcation";
+import AdminLogin from "./AdminPage/AdminLogin/AdminLogin";
+import AdminCategory from "./AdminPage/AdminCategory/AdminCategory";
 
 const App = () => {
   const { currentUser, fetchUserInfo } = useUserStore();
@@ -40,6 +42,8 @@ const App = () => {
         </>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/admincategory" element={<AdminCategory />} />
+          <Route path='/adminlogin' element={<AdminLogin/>}/>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           {currentUser && (
