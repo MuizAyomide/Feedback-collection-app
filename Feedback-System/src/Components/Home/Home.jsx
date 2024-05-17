@@ -1,7 +1,7 @@
 import React from "react";
 import "./Home.css";
 import { Link } from "react-router-dom";
-import admin_icon from '../../assets/feedback admin icon.png'
+import admin_icon from "../../assets/feedback admin icon.png";
 
 const Home = () => {
   return (
@@ -24,11 +24,11 @@ const Home = () => {
         </Link>
       </div>
       <Link to="/adminlogin" style={{ textDecoration: "none" }}>
-      <button className="admin">
-        <img src={admin_icon} alt="" />
-        Admin</button>
-        </Link>
-
+        <button className="admin">
+          <img src={admin_icon} alt="" />
+          Admin
+        </button>
+      </Link>
     </div>
   );
 };
