@@ -1,20 +1,20 @@
-.adminuser{
+.adminuser {
     margin: 0% 10%;
 }
 
-.adminuser-text{
-display: flex;
-flex-direction: column;
+.adminuser-text {
+    display: flex;
+    flex-direction: column;
 }
 
-.adminuser-text h1{
+.adminuser-text h1 {
     font-family: impact !important;
     font-size: 3.5rem;
     font-weight: 400;
     text-align: center;
 }
 
-.other-feedback{
+.other-feedback {
     margin-top: 10px;
     display: flex;
     flex-direction: column;
@@ -24,23 +24,23 @@ flex-direction: column;
     overflow-x: hidden;
 }
 
-.feedback{
+.feedback {
     display: flex;
     flex-direction: row !important;
     gap: 20px;
     height: 350px;
 }
 
-.feedback::-webkit-scrollbar{
+.feedback::-webkit-scrollbar {
     display: hidden;
 }
 
-.other-feedback .feedback{
+.other-feedback .feedback {
     display: flex;
     gap: 30px;
 }
 
-.feedback .candidatename-text{
+.feedback .candidatename-text {
     width: 50px;
     height: 50px;
     display: flex;
@@ -53,7 +53,7 @@ flex-direction: column;
     font-weight: 500;
 }
 
-.feedback .feedback-text{
+.feedback .feedback-text {
     width: 95%;
     height: 70px;
     background: #fff;

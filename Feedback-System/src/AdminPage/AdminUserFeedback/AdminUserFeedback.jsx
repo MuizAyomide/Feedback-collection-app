@@ -31,12 +31,10 @@ const AdminUserFeedback = () => {
 
       <div className="other-feedback">
         {feedbacks.map((feedback, index) => (
-          
           <div className="feedback" key={index}>
             <div className="candidatename-text">{feedback.candidateName}</div>
             <div className="feedback-text">{feedback.text}</div>
           </div>
-          
         ))}
       </div>
     </div>
