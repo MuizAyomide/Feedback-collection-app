@@ -1,23 +1,25 @@
-import React, { useEffect, useState } from 'react';
-
+import React, { useEffect, useState } from "react";
+import "./AdminUserFeedback.css";
+import { getDocs, collection } from "firebase/firestore";
+import { db } from "../../Lib/Firebase";
 
 const AdminUserFeedback = () => {
   const [feedbacks, setFeedbacks] = useState([]);
 
   useEffect(() => {
-    // Fetch the feedbacks from Firestore
     const fetchFeedbacks = async () => {
       try {
-        const feedbacksRef = firebase.firestore().collection('UserFeedbacks');
-        const snapshot = await feedbacksRef.get();
-        const fetchedFeedbacks = snapshot.docs.map(doc => doc.data());
+        const feedbacksRef = collection(db, "userfeedback");
+        const snapshot = await getDocs(feedbacksRef);
+        const fetchedFeedbacks = snapshot.docs.map((doc) => ({
+          text: doc.data().text,
+        }));
         setFeedbacks(fetchedFeedbacks);
       } catch (error) {
-        console.error('Error fetching feedbacks:', error);
+        console.error("Error fetching feedbacks:", error);
       }
     };
 
-    // Call the fetchFeedbacks function
     fetchFeedbacks();
   }, []);
 
@@ -29,10 +31,12 @@ const AdminUserFeedback = () => {
 
       <div className="other-feedback">
         {feedbacks.map((feedback, index) => (
+          
           <div className="feedback" key={index}>
             <div className="candidatename-text">{feedback.candidateName}</div>
-            <div className="feedback-text">{feedback.message}</div>
+            <div className="feedback-text">{feedback.text}</div>
           </div>
+          
         ))}
       </div>
     </div>
