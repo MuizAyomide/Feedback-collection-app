@@ -29,6 +29,7 @@ const User = () => {
       const userRef = doc(db, "userfeedback", currentUser.id);
       await updateDoc(userRef, {
         feedbacks: arrayUnion({
+          senderName: currentUser.username,
           senderId: currentUser.id,
           text,
           createdAt: new Date(),
