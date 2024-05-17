@@ -49,8 +49,8 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/admincategory" element={<AdminCategory />} />
-              <Route path="/adminuser" element={<AdminUserFeedback />} />
-              <Route path="/adminproduct" element={<AdminProductFeedback />} />
+          <Route path="/adminuser" element={<AdminUserFeedback />} />
+          <Route path="/adminproduct" element={<AdminProductFeedback />} />
           {currentUser && (
             <>
               <Route path="/category" element={<Category />} />
