@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import "./AdminLogin.css";
 import { Link, useNavigate } from "react-router-dom";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import { auth } from "../../Lib/Firebase";
 import { toast } from "react-toastify";
 
@@ -21,15 +24,19 @@ const AdminLogin = () => {
     }
 
     try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       const user = userCredential.user;
-  
+
       // Check if the user's email is in the array of admin email addresses
       if (adminEmails.includes(user.email)) {
         // Clear the email and password fields
         setEmail("");
         setPassword("");
-  
+
         navigate("/admincategory");
       } else {
         toast.error("You are not authorized to access the admin page.");
@@ -51,20 +58,17 @@ const AdminLogin = () => {
       await createUserWithEmailAndPassword(auth, email, password);
 
       // Clear the email and password fields
-      toast.success('Registered Successfully')
+      toast.success("Registered Successfully");
       setEmail("");
       setPassword("");
-
     } catch (err) {
       toast.error(err.message);
     }
-
-    
   };
 
   return (
     <div className="adminlogin">
-      <h1>{change? 'Login As Admin': 'Register As Admin'}</h1>
+      <h1>{change ? "Login As Admin" : "Register As Admin"}</h1>
 
       {change ? (
         <form onSubmit={handleLogin}>
@@ -100,24 +104,26 @@ const AdminLogin = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="submit">{change ? 'Login' : 'Register'}</button>
+          <button type="submit">{change ? "Login" : "Register"}</button>
         </form>
       )}
       {change ? (
-  <div className="bottom-info">
-    <h3>
-      Don't have an account?{" "}
-      <span onClick={() => setChange((prev) => !prev)}>Register Here!</span>
-    </h3>
-  </div>
-) : (
-  <div className="bottom-info">
-    <h3>
-      Already Registered?{" "}
-      <span onClick={() => setChange((prev) => !prev)}>Login Here!</span>
-    </h3>
-  </div>
-)}
+        <div className="bottom-info">
+          <h3>
+            Don't have an account?{" "}
+            <span onClick={() => setChange((prev) => !prev)}>
+              Register Here!
+            </span>
+          </h3>
+        </div>
+      ) : (
+        <div className="bottom-info">
+          <h3>
+            Already Registered?{" "}
+            <span onClick={() => setChange((prev) => !prev)}>Login Here!</span>
+          </h3>
+        </div>
+      )}
     </div>
   );
 };
